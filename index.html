@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Stop Automation!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #scroll-image {
+            display: none;
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        #text-below-image {
+            display: none;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #signup-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #signup-form input[type="email"] {
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #signup-form button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #success-message {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Help Stop Automation!</h1>
+        <p>Fake Description of the nonprofit organization:</p>
+        <p>"Not real organization Corp." is dedicated to preserving jobs and combating the rise of automation.</p>
+        <div id="signup-form">
+            <form id="email-form">
+                <input type="email" id="email" placeholder="Enter your email" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+        <img id="scroll-image" src="your-image.jpg" alt="Fired worker due to automation">
+        <p id="text-below-image">A worker that just got fired due to automation</p>
+        <p id="success-message">Success! Thanks for signing up.</p>
+    </div>
+
+    <script>
+        const scrollImage = document.getElementById("scroll-image");
+        const textBelowImage = document.getElementById("text-below-image");
+        const emailForm = document.getElementById("email-form");
+        const emailInput = document.getElementById("email");
+        const successMessage = document.getElementById("success-message");
+
+        // Show the image and text when scrolling down
+        window.addEventListener("scroll", function () {
+            if (window.scrollY > 100) { // Adjust this value as needed
+                scrollImage.style.display = "block";
+                textBelowImage.style.display = "block";
+            }
+        });
+
+        emailForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const emailAddress = emailInput.value;
+            // You can add your own logic here to handle the email address
+            console.log("Email Address:", emailAddress);
+            // Simulate a successful signup
+            successMessage.style.display = "block";
+            emailForm.style.display = "none";
+        });
+    </script>
+</body>
+</html>
